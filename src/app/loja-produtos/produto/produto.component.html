@@ -1,10 +1,10 @@
 <div>
   <span>Nome do Produto:</span> <br/>
-  <input value="{{nomeProduto}}">
+  <input [(ngModel)]='nomeProduto' placeholder="Nome">
   <br/>
   <br/>
   <span>Preço:</span> <br/>
-  <input value="{{precoProduto}}">
+  <input [(ngModel)]='precoProduto' placeholder="Preço">
   <br/>
   <br/>
   <button class='botao' (click)='add()'>Adicionar Produto</button>

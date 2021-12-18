@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-produto',
@@ -8,9 +9,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProdutoComponent implements OnInit {
 
-  nomeProduto
-  precoProduto
+  nomeProduto = "";
+  precoProduto = "";
   contagem = 1;
+
+  @Output() addProduto = new EventEmitter<any>();
 
   constructor(
     private route: ActivatedRoute,
@@ -19,7 +22,7 @@ export class ProdutoComponent implements OnInit {
 
     this.nomeProduto = route.snapshot.paramMap.get('codigo');
 
-    if(this.nomeProduto == 0) {
+    if(this.nomeProduto == "0") {
       this.nomeProduto = '';
     }
   }
@@ -30,7 +33,12 @@ export class ProdutoComponent implements OnInit {
 
   add() {
     localStorage.setItem('produto' + this.contagem, this.nomeProduto)
-    this.router.navigate(['/pagina-principal/'])
+    this.router.navigate(['/pagina-principal/produtos/'])
+    this.cadastroProduto();
+  }
+
+  cadastroProduto() {
+    this.addProduto.emit({nome: this.nomeProduto, valor: this.precoProduto});
   }
 
 }

@@ -1,5 +1,10 @@
-<div>
+<div (addProduto)='adicionarProduto($event)'>
   <h1>Produtos</h1>
   <button class='add' (click)='adicionar()'>Adicionar Produto</button>
-  <div *ngFor='let produto of listaProdutos'></div>
+  <table *ngFor='let produto of listaProdutos; let i = index'>
+    <tr>
+      <td>{{produto.nome}}</td>
+      <td>{{produto.valor}}</td>
+    </tr>
+  </table>
 </div>

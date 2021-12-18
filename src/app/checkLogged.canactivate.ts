@@ -10,7 +10,6 @@ class CheckLogged implements CanActivate {
         route: ActivatedRouteSnapshot, 
         state: RouterStateSnapshot,
     ): Observable<boolean> | Promise<boolean> | boolean {
-        console.log('DENTRO')
         
         let user = localStorage.getItem('USER');
         let senha = localStorage.getItem('SENHA');
@@ -33,6 +32,7 @@ class CheckLogged implements CanActivate {
         if(contagem > 0) {
             return true;
         } else {
+            this.router.navigate([''])
             return false;
         }
     }

@@ -21,4 +21,9 @@ export class ProdutosComponent implements OnInit {
     this.router.navigate(['/pagina-principal/produtos/', 0])
   }
 
+  adicionarProduto(a) {
+    console.log(a)
+    this.listaProdutos.push(a);
+  }
+
 }
