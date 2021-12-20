@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { embeddedViewStart } from '@angular/core/src/render3/instructions';
 import { Router, ActivatedRoute } from '@angular/router';
+import * as myGlobals from '../../globals';
 
 @Component({
   selector: 'app-produtos',
@@ -8,12 +10,70 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ProdutosComponent implements OnInit {
 
-  listaProdutos = []
+  codigoProduto = "";
+  nomeProduto = "";
+  precoProduto = "";
+
+  objetoProduto = {};
   contagem = 0;
+
+  tabela = document.querySelector('table');
 
   constructor(private router: Router) { }
 
   ngOnInit() {
+    this.chamarLista()
+  }
+
+  chamarLista() {
+
+    this.codigoProduto = localStorage.getItem('codigoProduto');
+    this.nomeProduto = localStorage.getItem('nomeProduto');
+    this.precoProduto = localStorage.getItem('precoProduto');
+
+    this.objetoProduto = {codigo: this.codigoProduto, nome: this.nomeProduto, preco: this.precoProduto}
+
+    if(this.codigoProduto != '' && this.codigoProduto != "0" && this.codigoProduto != null) {
+      myGlobals.listaProdutos.push(this.objetoProduto);
+    }
+    console.log(myGlobals.listaProdutos)
+
+    this.adicionarLista();
+  }
+
+  adicionarLista() {
+
+    var self = this;
+
+    myGlobals.listaProdutos.forEach(function (e) {
+
+      var obj = e;
+
+      let tabela2 = document.querySelector('table');
+      let linha = document.createElement('tr');
+
+      let colunaCodigo = document.createElement('td');
+      let colunaNome = document.createElement('td');
+      let colunaPreço = document.createElement('td');
+      let botaoProduto = document.createElement('button');
+
+      colunaCodigo.innerText = e.codigo;
+      colunaNome.innerText = e.nome;
+      colunaPreço.innerText = e.preco;
+
+      botaoProduto.innerText = "Editar";
+
+      botaoProduto.onclick = function (e) {
+        self.router.navigate(['/pagina-principal/produtos/', obj.codigo])
+      }
+
+      linha.appendChild(colunaCodigo);
+      linha.appendChild(colunaNome);
+      linha.appendChild(colunaPreço);
+      linha.appendChild(botaoProduto);
+
+      tabela2.appendChild(linha);      
+    })
   }
 
   adicionar() {
@@ -23,7 +83,14 @@ export class ProdutosComponent implements OnInit {
 
   adicionarProduto(a) {
     console.log(a)
-    this.listaProdutos.push(a);
+    myGlobals.listaProdutos.push(a);
+  }
+
+  voltar() {
+    this.router.navigate(['/pagina-principal/']);
+    localStorage.setItem('codigoProduto', '')
+    localStorage.setItem('nomeProduto', '')
+    localStorage.setItem('precoProduto', '')
   }
 
 }

@@ -1,6 +1,9 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EventEmitter } from '@angular/core';
+import * as myGlobals from '../../globals';
+import { Button } from 'selenium-webdriver';
+import { endTimeRange } from '@angular/core/src/profile/wtf_impl';
 
 @Component({
   selector: 'app-produto',
@@ -9,36 +12,77 @@ import { EventEmitter } from '@angular/core';
 })
 export class ProdutoComponent implements OnInit {
 
+  listaProdutos = myGlobals.listaProdutos
+
+  codigoProduto = "";
   nomeProduto = "";
   precoProduto = "";
-  contagem = 1;
-
-  @Output() addProduto = new EventEmitter<any>();
+  contagem = 0;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router
   ) {
 
-    this.nomeProduto = route.snapshot.paramMap.get('codigo');
+    this.codigoProduto = route.snapshot.paramMap.get('codigo');
 
-    if(this.nomeProduto == "0") {
-      this.nomeProduto = '';
+    if(this.codigoProduto == "0") {
+      this.codigoProduto = '';
     }
   }
 
 
   ngOnInit() {
+    this.pegarNomePreço();
   }
 
   add() {
-    localStorage.setItem('produto' + this.contagem, this.nomeProduto)
+
+    if(this.contagem == 1) {
+      this.edit();
+    } else {
+      localStorage.setItem('codigoProduto', this.codigoProduto)
+      localStorage.setItem('nomeProduto', this.nomeProduto)
+      localStorage.setItem('precoProduto', this.precoProduto)
+    }
     this.router.navigate(['/pagina-principal/produtos/'])
-    this.cadastroProduto();
   }
 
-  cadastroProduto() {
-    this.addProduto.emit({nome: this.nomeProduto, valor: this.precoProduto});
+  edit() {
+
+    var self = this;
+
+    localStorage.setItem('codigoProduto', '')
+    localStorage.setItem('nomeProduto', '')
+    localStorage.setItem('precoProduto', '')
+
+    myGlobals.listaProdutos.forEach (function (a) {
+      
+      if(a.codigo == self.codigoProduto) {
+        a.nome = self.nomeProduto;
+        a.preco = self.precoProduto
+
+        self.contagem = 0;
+      }
+    });
+  }
+
+  pegarNomePreço() {
+
+    var self = this;
+    myGlobals.listaProdutos.forEach (function (a) {
+      
+      if(a.codigo == self.codigoProduto) {
+        self.nomeProduto = a.nome;
+        self.precoProduto = a.preco;
+
+        let botaoProduto = document.querySelector('button');
+
+        botaoProduto.innerText = "Editar Produto";
+
+        self.contagem = 1;
+      }
+    });
   }
 
 }

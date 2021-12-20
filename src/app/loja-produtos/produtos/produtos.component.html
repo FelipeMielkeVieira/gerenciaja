@@ -1,10 +1,6 @@
-<div (addProduto)='adicionarProduto($event)'>
+<div (load)='chamarLista()'>
+  <button (click)='voltar()'>Voltar</button>
   <h1>Produtos</h1>
   <button class='add' (click)='adicionar()'>Adicionar Produto</button>
-  <table *ngFor='let produto of listaProdutos; let i = index'>
-    <tr>
-      <td>{{produto.nome}}</td>
-      <td>{{produto.valor}}</td>
-    </tr>
-  </table>
+  <table></table>
 </div>
