@@ -23,7 +23,7 @@ const routes: Routes = [
       ]},
       { path: 'clientes', children: [
         { path: '', component: ClientesComponent},
-        { path: ':id', component: ClienteComponent}
+        { path: ':codigo', component: ClienteComponent}
       ]},
       { path: 'pedidos', component: PedidoComponent}
     ]

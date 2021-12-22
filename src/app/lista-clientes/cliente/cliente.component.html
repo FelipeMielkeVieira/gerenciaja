@@ -1,3 +1,17 @@
-<p>
-  cliente works!
-</p>
+<div>
+  <br />
+  <span>Código do Cliente:</span> <br/>
+  <input [(ngModel)]="codigoCliente" placeholder="Código">
+  <br/>
+  <br />
+  <span>Nome do Cliente:</span> <br/>
+  <input [(ngModel)]="nomeCliente" placeholder="Nome">
+  <br/>
+  <br/>
+  <span>Telefone:</span> <br/>
+  <input [(ngModel)]="telefoneCliente" placeholder="Telefone">
+  <br/>
+  <br/>
+  <button class='botao' (click)='add()'>Adicionar Cliente</button>
+  <button class = 'botao' (click)='voltar()'>Cancelar</button>
+</div>

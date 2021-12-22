@@ -31,12 +31,11 @@ export class ProdutosComponent implements OnInit {
     this.nomeProduto = localStorage.getItem('nomeProduto');
     this.precoProduto = localStorage.getItem('precoProduto');
 
-    this.objetoProduto = {codigo: this.codigoProduto, nome: this.nomeProduto, preco: this.precoProduto}
+    this.objetoProduto = { codigo: this.codigoProduto, nome: this.nomeProduto, preco: this.precoProduto }
 
-    if(this.codigoProduto != '' && this.codigoProduto != "0" && this.codigoProduto != null) {
+    if (this.codigoProduto != '' && this.codigoProduto != "0" && this.codigoProduto != null) {
       myGlobals.listaProdutos.push(this.objetoProduto);
     }
-    console.log(myGlobals.listaProdutos)
 
     this.adicionarLista();
   }
@@ -56,23 +55,42 @@ export class ProdutosComponent implements OnInit {
       let colunaNome = document.createElement('td');
       let colunaPreço = document.createElement('td');
       let botaoProduto = document.createElement('button');
+      let botaoApagar = document.createElement('button');
 
       colunaCodigo.innerText = e.codigo;
       colunaNome.innerText = e.nome;
       colunaPreço.innerText = e.preco;
 
       botaoProduto.innerText = "Editar";
+      botaoApagar.innerText = "Excluir";
 
       botaoProduto.onclick = function (e) {
         self.router.navigate(['/pagina-principal/produtos/', obj.codigo])
       }
 
+      botaoApagar.onclick = function (e) {
+        tabela2.removeChild(linha);
+
+        var contagem = 0;
+        myGlobals.listaProdutos.forEach(function (a) {
+
+          if(obj.codigo == a.codigo) {
+            myGlobals.listaProdutos.splice(contagem, 1);
+          }
+
+          contagem++;
+        })
+      }
+
+
       linha.appendChild(colunaCodigo);
       linha.appendChild(colunaNome);
       linha.appendChild(colunaPreço);
       linha.appendChild(botaoProduto);
+      linha.appendChild(botaoApagar);
 
-      tabela2.appendChild(linha);      
+      tabela2.appendChild(linha);
+
     })
   }
 
