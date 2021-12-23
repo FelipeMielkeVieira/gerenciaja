@@ -109,4 +109,10 @@ export class ClientesComponent implements OnInit {
     localStorage.setItem('telefoneCliente', '')
   }
 
+  logout() {
+    localStorage.removeItem("USER");
+    localStorage.removeItem("SENHA");
+    this.router.navigate(['']);
+  }
+
 }

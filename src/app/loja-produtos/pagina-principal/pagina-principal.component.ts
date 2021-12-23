@@ -25,4 +25,10 @@ export class PaginaPrincipalComponent implements OnInit {
     this.router.navigate(['/pagina-principal/pedidos'])
   }
 
+  logout() {
+    localStorage.removeItem("USER");
+    localStorage.removeItem("SENHA");
+    this.router.navigate(['']);
+  }
+
 }

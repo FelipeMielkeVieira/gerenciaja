@@ -111,4 +111,10 @@ export class ProdutosComponent implements OnInit {
     localStorage.setItem('precoProduto', '')
   }
 
+  logout() {
+    localStorage.removeItem("USER");
+    localStorage.removeItem("SENHA");
+    this.router.navigate(['']);
+  }
+
 }

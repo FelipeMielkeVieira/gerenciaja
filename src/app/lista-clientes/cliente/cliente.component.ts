@@ -92,4 +92,10 @@ export class ClienteComponent implements OnInit {
     this.router.navigate(['/pagina-principal/produtos/'])
   }
 
+  logout() {
+    localStorage.removeItem("USER");
+    localStorage.removeItem("SENHA");
+    this.router.navigate(['']);
+  }
+
 }
