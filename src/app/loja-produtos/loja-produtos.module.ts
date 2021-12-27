@@ -9,6 +9,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ClientesComponent } from '../lista-clientes/clientes/clientes.component';
 import { PedidoComponent } from '../gerenciar-pedido/pedido/pedido.component';
+import { PedidosComponent } from '../gerenciar-pedido/pedidos/pedidos.component';
 import { ClienteComponent } from '../lista-clientes/cliente/cliente.component';
 
 const routes: Routes = [
@@ -25,7 +26,10 @@ const routes: Routes = [
         { path: '', component: ClientesComponent},
         { path: ':codigo', component: ClienteComponent}
       ]},
-      { path: 'pedidos', component: PedidoComponent}
+      { path: 'pedidos', children: [
+        { path: '', component: PedidosComponent},
+        { path: ':codigo', component: PedidosComponent}
+      ]}
     ]
   }
 ]
