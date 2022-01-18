@@ -105,4 +105,8 @@ export class PedidosComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  adicionar() {
+    this.router.navigate(['/pagina-principal/pedidos/', 0])
+  }
+
 }

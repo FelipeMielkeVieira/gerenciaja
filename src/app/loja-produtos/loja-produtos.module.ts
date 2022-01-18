@@ -28,7 +28,7 @@ const routes: Routes = [
       ]},
       { path: 'pedidos', children: [
         { path: '', component: PedidosComponent},
-        { path: ':codigo', component: PedidosComponent}
+        { path: ':codigo', component: PedidoComponent}
       ]}
     ]
   }
