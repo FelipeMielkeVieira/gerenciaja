@@ -1,7 +1,14 @@
 <div>
   {{status}} <br />
   Número do Pedido: {{numeroP}} <br />
-  <select id="select"> 
-    <option>Selecionar Cliente</option>
-  </select>
+  <select #t (change)="mudarSelect(t.value)" id="select"> 
+    <option [value]="">Selecionar Cliente</option>
+  </select> <br />
+  Código: {{codigoCliente}} <br />
+  Telefone: {{telefoneCliente}} <br />
+  <br />
+  <button (click)="addProduto()">Adicionar Produto</button> <br />
+  <br />
+  Valor Total: R${{valorTotal}} <br />
+  <button (click)="fecharOrcamento">Fechar Orçamento</button>
 </div>

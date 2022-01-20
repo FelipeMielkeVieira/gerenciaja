@@ -17,6 +17,9 @@ export class PedidoComponent implements OnInit {
 
   numeroP = 1
   status = "Em Andamento"
+  telefoneCliente = ""
+  codigoCliente = ""
+  valorTotal = 0
 
   numeroPedido() {
 
@@ -36,8 +39,33 @@ export class PedidoComponent implements OnInit {
       let opcao = document.createElement('option')
       opcao.innerText = e.nome
 
+      opcao.value = e.codigo
+
       select.appendChild(opcao)
     });
+  }
+
+  mudarSelect(codigo) {
+
+    var self = this
+
+    self.status = "Em Aberto"
+
+    myGlobals.listaClientes.forEach(function (e) {
+
+      if(e.codigo == codigo) {
+        self.codigoCliente = codigo
+        self.telefoneCliente = e.telefone
+      }
+    })
+  }
+
+  addProduto() {
+
+    let modal = document.createElement('div');
+    modal.id = 'modal'
+
+    document.body.appendChild(modal)
   }
 
 }
