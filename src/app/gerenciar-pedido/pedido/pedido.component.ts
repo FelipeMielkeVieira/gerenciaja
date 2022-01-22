@@ -65,6 +65,20 @@ export class PedidoComponent implements OnInit {
     let modal = document.createElement('div');
     modal.id = 'modal'
 
+    let selectProduto = document.createElement('select')
+    selectProduto.className = 'selectProduto'
+
+    myGlobals.listaProdutos.forEach(function (e) {
+
+      let opcao = document.createElement('option')
+      opcao.innerText = e.nome
+
+      opcao.value = e.codigo
+
+      selectProduto.appendChild(opcao)
+    })
+
+    modal.appendChild(selectProduto)
     document.body.appendChild(modal)
   }
 

@@ -1,0 +1,9 @@
+#modal {
+    position: absolute;
+    width: 40vw;
+    height: 20vh;
+    top: 20vh;
+    left: 30vw;
+    border: 1px black solid;
+    padding: 10px;
+}
