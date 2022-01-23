@@ -57,6 +57,9 @@ export class ProdutosComponent implements OnInit {
       let botaoProduto = document.createElement('button');
       let botaoApagar = document.createElement('button');
 
+      botaoProduto.className = 'botoesLista'
+      botaoApagar.className = 'botoesLista'
+
       colunaCodigo.innerText = e.codigo;
       colunaNome.innerText = e.nome;
       colunaPreço.innerText = e.preco;

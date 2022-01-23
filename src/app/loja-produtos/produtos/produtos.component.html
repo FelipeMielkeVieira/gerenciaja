@@ -1,7 +1,11 @@
-<div (load)='chamarLista()'>
-  <button (click)='voltar()'>Voltar</button>
-  <button (click)='logout()' class = 'logout'>Logout</button>
-  <h1>Produtos</h1>
+<div (load)='chamarLista()' class="body">
+  <div class="botoes">
+    <button (click)='voltar()' class="logout">Voltar</button>
+    <button (click)='logout()' class = 'logout'>Logout</button>
+  </div>
+  <div class="tabela">
+    <h1>Produtos</h1>
+    <table></table>
+  </div>
   <button class='add' (click)='adicionar()'>Adicionar Produto</button>
-  <table></table>
 </div>
