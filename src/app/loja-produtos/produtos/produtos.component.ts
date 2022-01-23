@@ -44,6 +44,8 @@ export class ProdutosComponent implements OnInit {
 
     var self = this;
 
+    this.headerLista()
+
     myGlobals.listaProdutos.forEach(function (e) {
 
       var obj = e;
@@ -51,11 +53,17 @@ export class ProdutosComponent implements OnInit {
       let tabela2 = document.querySelector('table');
       let linha = document.createElement('tr');
 
+      linha.className = 'linha'
+
       let colunaCodigo = document.createElement('td');
       let colunaNome = document.createElement('td');
       let colunaPreço = document.createElement('td');
       let botaoProduto = document.createElement('button');
       let botaoApagar = document.createElement('button');
+
+      colunaCodigo.className = 'coluna'
+      colunaNome.className = 'coluna'
+      colunaPreço.className = 'coluna'
 
       botaoProduto.className = 'botoesLista'
       botaoApagar.className = 'botoesLista'
@@ -77,7 +85,7 @@ export class ProdutosComponent implements OnInit {
         var contagem = 0;
         myGlobals.listaProdutos.forEach(function (a) {
 
-          if(obj.codigo == a.codigo) {
+          if (obj.codigo == a.codigo) {
             myGlobals.listaProdutos.splice(contagem, 1);
           }
 
@@ -95,6 +103,31 @@ export class ProdutosComponent implements OnInit {
       tabela2.appendChild(linha);
 
     })
+  }
+
+  headerLista() {
+
+    let tabela2 = document.querySelector('table');
+    let linha = document.createElement('tr');
+
+    linha.className = 'linha'
+
+    let colunaCodigo = document.createElement('td');
+    let colunaNome = document.createElement('td');
+    let colunaPreço = document.createElement('td');
+
+    colunaCodigo.className = 'coluna'
+    colunaNome.className = 'coluna'
+    colunaPreço.className = 'coluna'
+
+    colunaCodigo.innerText = 'Código'
+    colunaNome.innerText = 'Nome'
+    colunaPreço.innerText = 'Preço'
+
+    linha.appendChild(colunaCodigo)
+    linha.appendChild(colunaNome)
+    linha.appendChild(colunaPreço)
+    tabela2.appendChild(linha)
   }
 
   adicionar() {
