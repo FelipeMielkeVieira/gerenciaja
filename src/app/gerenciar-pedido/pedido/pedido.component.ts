@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as myGlobals from '../../globals';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-pedido',
@@ -8,18 +9,26 @@ import * as myGlobals from '../../globals';
 })
 export class PedidoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.numeroPedido()
     this.listaClientes()
+    this.listaProdutos()
   }
 
   numeroP = 1
   status = "Em Andamento"
   telefoneCliente = ""
   codigoCliente = ""
+  nomeCliente = ""
+  nomeProduto = ""
+  codigoProduto = ""
   valorTotal = 0
+  qtd = 1
 
   numeroPedido() {
 
@@ -54,32 +63,69 @@ export class PedidoComponent implements OnInit {
     myGlobals.listaClientes.forEach(function (e) {
 
       if(e.codigo == codigo) {
+        console.log('oi')
         self.codigoCliente = codigo
         self.telefoneCliente = e.telefone
+        self.nomeCliente = e.nome
       }
     })
   }
 
-  addProduto() {
-
-    let modal = document.createElement('div');
-    modal.id = 'modal'
-
-    let selectProduto = document.createElement('select')
-    selectProduto.className = 'selectProduto'
+  listaProdutos() {
 
     myGlobals.listaProdutos.forEach(function (e) {
+      
+      let select = document.getElementById('select2')
 
       let opcao = document.createElement('option')
       opcao.innerText = e.nome
 
       opcao.value = e.codigo
 
-      selectProduto.appendChild(opcao)
-    })
+      select.appendChild(opcao)
+    });
+  }
 
-    modal.appendChild(selectProduto)
-    document.body.appendChild(modal)
+  mudarSelect2(codigo) {
+
+    var self = this
+
+    myGlobals.listaProdutos.forEach(function (e) {
+
+      if(e.codigo == codigo) {
+        self.codigoProduto = e.codigo
+        self.valorTotal = self.qtd * e.preco
+        self.nomeProduto = e.nome
+      }
+    })
+  }
+
+  qtdProduto() {
+
+    var self = this
+
+    let inputQtd = document.querySelector('input')
+    this.qtd = parseInt(inputQtd.value)
+
+    myGlobals.listaProdutos.forEach(function (e) {
+
+      if(e.codigo == self.codigoProduto) {
+        self.valorTotal = self.qtd * e.preco
+      }
+    })
+  }
+
+  fecharOrcamento() {
+
+    if(this.valorTotal > 0) {
+
+      this.status = "Orçamento Fechado"
+
+      let objeto = { codigoPedido: this.numeroP, codigoProduto: this.codigoProduto, codigoCliente: this.codigoCliente, nomeCliente: this.nomeCliente, nomeProduto: this.nomeProduto, valor: this.valorTotal, status: this.status}
+    
+      myGlobals.listaPedidos.push(objeto)
+      this.router.navigate(['/pagina-principal/pedidos/'])
+    }
   }
 
 }

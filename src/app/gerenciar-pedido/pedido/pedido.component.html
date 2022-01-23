@@ -7,8 +7,11 @@
   Código: {{codigoCliente}} <br />
   Telefone: {{telefoneCliente}} <br />
   <br />
-  <button (click)="addProduto()">Adicionar Produto</button> <br />
+  <select #f (change)="mudarSelect2(f.value)" id="select2"> 
+    <option [value]="">Selecionar Produto</option>
+  </select> <br />
+  <input type="number" value="{{qtd}}" (change)="qtdProduto()" id="inputQtd">
   <br />
   Valor Total: R${{valorTotal}} <br />
-  <button (click)="fecharOrcamento">Fechar Orçamento</button>
+  <button (click)="fecharOrcamento()">Fechar Orçamento</button>
 </div>
