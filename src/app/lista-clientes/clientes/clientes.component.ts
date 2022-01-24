@@ -44,6 +44,8 @@ export class ClientesComponent implements OnInit {
 
     var self = this;
 
+    this.headerLista()
+
     myGlobals.listaClientes.forEach(function (e) {
 
       var obj = e;
@@ -90,6 +92,31 @@ export class ClientesComponent implements OnInit {
 
       tabela2.appendChild(linha);      
     })
+  }
+
+  headerLista() {
+
+    let tabela2 = document.querySelector('table');
+    let linha = document.createElement('tr');
+
+    linha.className = 'linha'
+
+    let colunaCodigo = document.createElement('td');
+    let colunaNome = document.createElement('td');
+    let colunaTelefone = document.createElement('td');
+
+    colunaCodigo.className = 'coluna'
+    colunaNome.className = 'coluna'
+    colunaTelefone.className = 'coluna'
+
+    colunaCodigo.innerText = 'Código'
+    colunaNome.innerText = 'Nome'
+    colunaTelefone.innerText = 'Telefone'
+
+    linha.appendChild(colunaCodigo)
+    linha.appendChild(colunaNome)
+    linha.appendChild(colunaTelefone)
+    tabela2.appendChild(linha)
   }
 
   adicionar() {
