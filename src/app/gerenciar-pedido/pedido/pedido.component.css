@@ -1,0 +1,91 @@
+.status {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    border: 1px black solid;
+    border-radius: 6px;
+    padding: 10px;
+    width: 160px;
+    text-align: center;
+}
+
+.numero {
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    border: 1px black solid;
+    border-radius: 6px;
+    padding: 10px;
+    width: 160px;
+    text-align: center;
+}
+
+.body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.fechar {
+    width: 160px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.logout {
+    position: absolute;
+    padding: 6px 10px;
+    top: 12px;
+    right: 12px;
+    border: black 1px solid;
+    border-radius: 8px;
+}
+
+.divCliente {
+    width: 20vw;
+    border: black 1px solid;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+select {
+    border: 1px black solid;
+    border-radius: 6px;
+}
+
+span {
+    margin-top: 10px;
+}
+
+.divProduto {
+    width: 20vw;
+    border: black 1px solid;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.divQtd {
+    margin-top: 10px;
+}
+
+.divBotoes {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 360px;
+}

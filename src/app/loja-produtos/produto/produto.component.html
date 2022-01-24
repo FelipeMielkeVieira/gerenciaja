@@ -1,18 +1,20 @@
-<div>
+<div class="body">
   <button (click)='logout()' class = 'logout'>Logout</button>
   <br />
   <span>Código do Produto:</span> <br/>
-  <input [(ngModel)]='codigoProduto' placeholder="Código">
+  <input [(ngModel)]='codigoProduto' placeholder="Código" class="input">
   <br/>
   <br />
   <span>Nome do Produto:</span> <br/>
-  <input [(ngModel)]='nomeProduto' placeholder="Nome">
+  <input [(ngModel)]='nomeProduto' placeholder="Nome" class="input">
   <br/>
   <br/>
   <span>Preço:</span> <br/>
-  <input [(ngModel)]='precoProduto' placeholder="Preço">
+  <input [(ngModel)]='precoProduto' placeholder="Preço" class="input">
   <br/>
   <br/>
-  <button class='botao' (click)='add()'>Adicionar Produto</button>
-  <button class = 'botao' (click)='voltar()'>Cancelar</button>
+  <div class="divBotoes">
+    <button class='botao' (click)='add()'>Adicionar Produto</button>
+    <button class = 'botao' (click)='voltar()'>Cancelar</button>
+  </div>
 </div>

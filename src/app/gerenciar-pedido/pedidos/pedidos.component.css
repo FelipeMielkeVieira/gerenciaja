@@ -1,0 +1,82 @@
+.add {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 160px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.add:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.botoes {
+    width: 10vw;
+    height: 96.9vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: solid rgb(173, 169, 169) 1px;
+}
+
+.tabela {
+    width: 90vw;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.logout {
+    margin-top: 20px;
+    width: 80%;
+    height: 30px;
+    border: black 1px solid;
+    border-radius: 6px;
+}
+
+.logout:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: underline;
+    font-size: 26px;
+    margin-bottom: 30px;
+}
+
+table {
+    width: 70vw;
+    border: 1px solid black;
+}
+
+.linha {
+    width: 70vw;
+    height: 40px;
+    display: flex;
+    border-bottom: solid black 1px;
+}
+
+.coluna {
+    width: 14vw;
+    height: 40px;
+    border-right: 1px black solid;
+}
+
+.botoesLista {
+    width: 14vw;
+    height: 40px;
+}

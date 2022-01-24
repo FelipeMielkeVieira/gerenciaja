@@ -1,17 +1,26 @@
-<div>
-  {{status}} <br />
-  Número do Pedido: {{numeroP}} <br />
-  <select #t (change)="mudarSelect(t.value)" id="select"> 
-    <option [value]="">Selecionar Cliente</option>
-  </select> <br />
-  Código: {{codigoCliente}} <br />
-  Telefone: {{telefoneCliente}} <br />
-  <br />
-  <select #f (change)="mudarSelect2(f.value)" id="select2"> 
-    <option [value]="">Selecionar Produto</option>
-  </select> <br />
-  <input type="number" value="{{qtd}}" (change)="qtdProduto()" id="inputQtd">
-  <br />
-  Valor Total: R${{valorTotal}} <br />
-  <button (click)="fecharOrcamento()">Fechar Orçamento</button>
+<div class="body">
+  <div class="status">{{status}}</div>
+  <div class="numero">Número do Pedido: {{numeroP}}</div>
+  <div class="divCliente">
+    <select #t (change)="mudarSelect(t.value)" id="select"> 
+      <option [value]="">Selecionar Cliente</option>
+    </select>
+    <span>Código: {{codigoCliente}}</span>
+    <span>Telefone: {{telefoneCliente}}</span>
+  </div>
+  <div class="divProduto">
+    <select #f (change)="mudarSelect2(f.value)" id="select2"> 
+      <option [value]="">Selecionar Produto</option>
+    </select>
+    <div class="divQtd">
+      <span class="qtd">Quantidade: </span>
+      <input type="number" value="{{qtd}}" (change)="qtdProduto()" id="inputQtd">
+    </div>
+    <span>Valor Total: R${{valorTotal}}</span>
+  </div>
+  <div class="divBotoes">
+    <button (click)="fecharOrcamento()" class="fechar">Fechar Orçamento</button>
+    <button class = 'fechar' (click)='voltar()'>Cancelar</button>
+  </div>
+  <button (click)='logout()' class = 'logout'>Logout</button>
 </div>

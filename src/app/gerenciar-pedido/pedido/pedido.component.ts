@@ -128,4 +128,17 @@ export class PedidoComponent implements OnInit {
     }
   }
 
+  logout() {
+    localStorage.removeItem("USER");
+    localStorage.removeItem("SENHA");
+    this.router.navigate(['']);
+  }
+
+  voltar() {
+    localStorage.setItem('codigoProduto', '')
+    localStorage.setItem('nomeProduto', '')
+    localStorage.setItem('precoProduto', '')
+    this.router.navigate(['/pagina-principal/produtos/'])
+  }
+
 }
