@@ -36,3 +36,12 @@ th {
 .botoesLista:hover {
     cursor: pointer;
 }
+
+.coluna {
+    width: 8.7vw;
+    height: 40px;
+    border-right: 1px black solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

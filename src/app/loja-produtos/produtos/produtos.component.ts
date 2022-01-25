@@ -61,10 +61,6 @@ export class ProdutosComponent implements OnInit {
       let botaoProduto = document.createElement('button');
       let botaoApagar = document.createElement('button');
 
-      colunaCodigo.className = 'coluna'
-      colunaNome.className = 'coluna'
-      colunaPreço.className = 'coluna'
-
       botaoProduto.className = 'botoesLista'
       botaoApagar.className = 'botoesLista'
 
@@ -118,9 +114,6 @@ export class ProdutosComponent implements OnInit {
     let colunaNome = document.createElement('th');
     let colunaPreço = document.createElement('th');
 
-    colunaCodigo.className = 'coluna'
-    colunaNome.className = 'coluna'
-    colunaPreço.className = 'coluna'
 
     colunaCodigo.innerText = 'Código'
     colunaNome.innerText = 'Nome'

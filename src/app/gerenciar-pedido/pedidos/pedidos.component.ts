@@ -19,28 +19,15 @@ export class PedidosComponent implements OnInit {
   objetoPedido = {};
 
   ngOnInit() {
-    this.chamarLista();
-  }
-
-  chamarLista() {
-
-    this.numeroPedido = localStorage.getItem('numeroPedido');
-    this.statusPedido = localStorage.getItem('statusPedido');
-    this.clientePedido = localStorage.getItem('clientePedido');
-    this.qtdProdutos = localStorage.getItem('qtdProdutos');
-
-    this.objetoPedido = { codigo: this.numeroPedido, status: this.statusPedido, cliente: this.clientePedido, qtd: this.qtdProdutos }
-
-    if (this.numeroPedido != '' && this.numeroPedido != "0" && this.numeroPedido != null) {
-      myGlobals.listaPedidos.push(this.objetoPedido);
-    }
-
+    console.log(myGlobals.listaPedidos)
     this.adicionarLista();
   }
 
   adicionarLista() {
 
     var self = this;
+
+    this.headerLista()
 
     myGlobals.listaPedidos.forEach(function (e) {
 
@@ -49,47 +36,93 @@ export class PedidosComponent implements OnInit {
       let tabela2 = document.querySelector('table');
       let linha = document.createElement('tr');
 
-      let colunaCodigo = document.createElement('td');
-      let colunaNome = document.createElement('td');
-      let colunaPreço = document.createElement('td');
-      let botaoProduto = document.createElement('button');
-      let botaoApagar = document.createElement('button');
+      linha.className = 'linha'
 
-      colunaCodigo.innerText = e.codigo;
-      colunaNome.innerText = e.nome;
-      colunaPreço.innerText = e.preco;
+      let colunaNumero = document.createElement('td');
+      let colunaStatus = document.createElement('td');
+      let colunaCliente = document.createElement('td');
+      let colunaProduto = document.createElement('td');
+      let colunaQuantidade = document.createElement('td');
+      let colunaValor = document.createElement('td');
+      let botaoFechar = document.createElement('button');
+      let botaoCancelar = document.createElement('button');
 
-      botaoProduto.innerText = "Editar";
-      botaoApagar.innerText = "Excluir";
+      colunaNumero.className = 'coluna'
+      colunaStatus.className = 'coluna'
+      colunaCliente.className = 'coluna'
+      colunaProduto.className = 'coluna'
+      colunaQuantidade.className = 'coluna'
+      colunaValor.className = 'coluna'
 
-      botaoProduto.onclick = function (e) {
-        self.router.navigate(['/pagina-principal/produtos/', obj.codigo])
+      colunaNumero.innerText = e.codigoPedido;
+      colunaStatus.innerText = e.status;
+      colunaCliente.innerText = e.nomeCliente;
+      colunaProduto.innerText = e.nomeProduto;
+      colunaQuantidade.innerText = e.quantidade;
+      colunaValor.innerText = e.valor;
+
+      botaoFechar.innerText = "Fechar Pedido";
+      botaoCancelar.innerText = "Cancelar Pedido";
+
+      botaoFechar.onclick = function (e) {
+        colunaStatus.innerText = 'Pedido Fechado'
       }
 
-      botaoApagar.onclick = function (e) {
-        tabela2.removeChild(linha);
-
-        var contagem = 0;
-        myGlobals.listaProdutos.forEach(function (a) {
-
-          if(obj.codigo == a.codigo) {
-            myGlobals.listaProdutos.splice(contagem, 1);
-          }
-
-          contagem++;
-        })
+      botaoCancelar.onclick = function (e) {
+        colunaStatus.innerText = 'Pedido Cancelado'
       }
 
 
-      linha.appendChild(colunaCodigo);
-      linha.appendChild(colunaNome);
-      linha.appendChild(colunaPreço);
-      linha.appendChild(botaoProduto);
-      linha.appendChild(botaoApagar);
+      linha.appendChild(colunaNumero);
+      linha.appendChild(colunaStatus);
+      linha.appendChild(colunaCliente);
+      linha.appendChild(colunaProduto);
+      linha.appendChild(colunaQuantidade);
+      linha.appendChild(colunaValor);
+      linha.appendChild(botaoFechar);
+      linha.appendChild(botaoCancelar);
 
       tabela2.appendChild(linha);
 
     })
+  }
+
+  headerLista() {
+
+    let tabela2 = document.querySelector('table');
+    let linha = document.createElement('tr');
+
+    linha.className = 'linha'
+
+    let colunaNumero = document.createElement('td');
+    let colunaStatus = document.createElement('td');
+    let colunaCliente = document.createElement('td');
+    let colunaProduto = document.createElement('td');
+    let colunaQuantidade = document.createElement('td');
+    let colunaValor = document.createElement('td');
+
+    colunaNumero.className = 'coluna'
+    colunaStatus.className = 'coluna'
+    colunaCliente.className = 'coluna'
+    colunaProduto.className = 'coluna'
+    colunaQuantidade.className = 'coluna'
+    colunaValor.className = 'coluna'
+
+    colunaNumero.innerText = 'Número do pedido'
+    colunaStatus.innerText = 'Status'
+    colunaCliente.innerText = 'Nome do Cliente'
+    colunaProduto.innerText = 'Nome do Produto'
+    colunaQuantidade.innerText = 'Quantidade de Produtos'
+    colunaValor.innerText = 'Valor Final'
+
+    linha.appendChild(colunaNumero)
+    linha.appendChild(colunaStatus)
+    linha.appendChild(colunaCliente)
+    linha.appendChild(colunaProduto)
+    linha.appendChild(colunaQuantidade)
+    linha.appendChild(colunaValor)
+
+    tabela2.appendChild(linha)
   }
 
   voltar() {

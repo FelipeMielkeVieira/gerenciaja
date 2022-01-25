@@ -120,7 +120,7 @@ export class PedidoComponent implements OnInit {
 
       this.status = "Orçamento Fechado"
 
-      let objeto = { codigoPedido: this.numeroP, codigoProduto: this.codigoProduto, codigoCliente: this.codigoCliente, nomeCliente: this.nomeCliente, nomeProduto: this.nomeProduto, valor: this.valorTotal, status: this.status}
+      let objeto = { codigoPedido: this.numeroP, codigoProduto: this.codigoProduto, codigoCliente: this.codigoCliente, nomeCliente: this.nomeCliente, nomeProduto: this.nomeProduto, valor: this.valorTotal, status: this.status, quantidade: this.qtd}
     
       myGlobals.listaPedidos.push(objeto)
       this.router.navigate(['/pagina-principal/pedidos/'])

@@ -110,10 +110,6 @@ export class ClientesComponent implements OnInit {
     let colunaNome = document.createElement('th');
     let colunaTelefone = document.createElement('th');
 
-    colunaCodigo.className = 'coluna'
-    colunaNome.className = 'coluna'
-    colunaTelefone.className = 'coluna'
-
     colunaCodigo.innerText = 'Código'
     colunaNome.innerText = 'Nome'
     colunaTelefone.innerText = 'Telefone'
