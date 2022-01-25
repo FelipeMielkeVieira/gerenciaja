@@ -1,3 +1,27 @@
 * {
     margin: 0;
 }
+
+.linha {
+    width: 70vw;
+    height: 40px;
+    display: flex;
+    border-bottom: solid black 1px;
+}
+
+td {
+    width: 14vw;
+    height: 40px;
+    border-right: 1px black solid;
+}
+
+th {
+    width: 14vw;
+    height: 40px;
+    border-right: 1px black solid;
+}
+
+.botoesLista {
+    width: 13.5vw;
+    height: 40px;
+}

@@ -87,6 +87,8 @@ export class ProdutosComponent implements OnInit {
 
           if (obj.codigo == a.codigo) {
             myGlobals.listaProdutos.splice(contagem, 1);
+            console.log('retirado')
+            console.log(myGlobals.listaProdutos)
           }
 
           contagem++;
@@ -112,9 +114,9 @@ export class ProdutosComponent implements OnInit {
 
     linha.className = 'linha'
 
-    let colunaCodigo = document.createElement('td');
-    let colunaNome = document.createElement('td');
-    let colunaPreço = document.createElement('td');
+    let colunaCodigo = document.createElement('th');
+    let colunaNome = document.createElement('th');
+    let colunaPreço = document.createElement('th');
 
     colunaCodigo.className = 'coluna'
     colunaNome.className = 'coluna'

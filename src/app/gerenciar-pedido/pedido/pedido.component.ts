@@ -138,7 +138,7 @@ export class PedidoComponent implements OnInit {
     localStorage.setItem('codigoProduto', '')
     localStorage.setItem('nomeProduto', '')
     localStorage.setItem('precoProduto', '')
-    this.router.navigate(['/pagina-principal/produtos/'])
+    this.router.navigate(['/pagina-principal/pedidos/'])
   }
 
 }
