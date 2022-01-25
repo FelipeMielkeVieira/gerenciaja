@@ -7,21 +7,28 @@
     height: 40px;
     display: flex;
     border-bottom: solid black 1px;
+    padding: 0;
 }
 
 td {
     width: 14vw;
     height: 40px;
     border-right: 1px black solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 th {
     width: 14vw;
     height: 40px;
     border-right: 1px black solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .botoesLista {
-    width: 13.5vw;
+    width: 13.6vw;
     height: 40px;
 }

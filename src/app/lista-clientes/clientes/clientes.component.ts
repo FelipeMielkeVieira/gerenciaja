@@ -53,6 +53,8 @@ export class ClientesComponent implements OnInit {
       let tabela2 = document.querySelector('table');
       let linha = document.createElement('tr');
 
+      linha.className = 'linha'
+
       let colunaCodigo = document.createElement('td');
       let colunaNome = document.createElement('td');
       let colunaTelefone = document.createElement('td');
@@ -101,9 +103,9 @@ export class ClientesComponent implements OnInit {
 
     linha.className = 'linha'
 
-    let colunaCodigo = document.createElement('td');
-    let colunaNome = document.createElement('td');
-    let colunaTelefone = document.createElement('td');
+    let colunaCodigo = document.createElement('th');
+    let colunaNome = document.createElement('th');
+    let colunaTelefone = document.createElement('th');
 
     colunaCodigo.className = 'coluna'
     colunaNome.className = 'coluna'

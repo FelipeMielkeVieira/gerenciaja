@@ -76,7 +76,7 @@ export class ProdutoComponent implements OnInit {
         self.nomeProduto = a.nome;
         self.precoProduto = a.preco;
 
-        let botaoProduto = document.querySelector('button');
+        let botaoProduto = document.getElementById('botao2');
 
         botaoProduto.innerText = "Editar Produto";
 

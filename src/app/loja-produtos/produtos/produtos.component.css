@@ -61,4 +61,6 @@ h1 {
 table {
     width: 70vw;
     border: 1px solid black;
+    border-bottom: 0;
+    padding: 0;
 }
