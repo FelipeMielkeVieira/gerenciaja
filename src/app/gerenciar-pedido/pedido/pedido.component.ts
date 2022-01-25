@@ -63,7 +63,6 @@ export class PedidoComponent implements OnInit {
     myGlobals.listaClientes.forEach(function (e) {
 
       if(e.codigo == codigo) {
-        console.log('oi')
         self.codigoCliente = codigo
         self.telefoneCliente = e.telefone
         self.nomeCliente = e.nome

@@ -76,7 +76,7 @@ export class ClienteComponent implements OnInit {
         self.nomeCliente = a.nome;
         self.telefoneCliente = a.telefone;
 
-        let botaoCliente = document.querySelector('button');
+        let botaoCliente = document.getElementById('botao2');
 
         botaoCliente.innerText = "Editar Cliente";
 
@@ -89,7 +89,7 @@ export class ClienteComponent implements OnInit {
     localStorage.setItem('codigoProduto', '')
     localStorage.setItem('nomeProduto', '')
     localStorage.setItem('precoProduto', '')
-    this.router.navigate(['/pagina-principal/produtos/'])
+    this.router.navigate(['/pagina-principal/clientes/'])
   }
 
   logout() {

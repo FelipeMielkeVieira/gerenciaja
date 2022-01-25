@@ -41,6 +41,11 @@ span {
     height: 30px;
 }
 
+#botao2:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .botao:hover {
     cursor: pointer;
     text-decoration: underline;

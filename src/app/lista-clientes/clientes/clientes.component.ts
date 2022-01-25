@@ -65,6 +65,9 @@ export class ClientesComponent implements OnInit {
       colunaNome.innerText = e.nome;
       colunaTelefone.innerText = e.telefone;
 
+      botaoProduto.className = 'botoesLista'
+      botaoApagar.className = 'botoesLista'
+
       botaoProduto.innerText = "Editar";
       botaoApagar.innerText = "Excluir";
 
