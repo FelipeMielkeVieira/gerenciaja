@@ -59,17 +59,23 @@ export class PedidosComponent implements OnInit {
       colunaCliente.innerText = e.nomeCliente;
       colunaProduto.innerText = e.nomeProduto;
       colunaQuantidade.innerText = e.quantidade;
-      colunaValor.innerText = e.valor;
+      colunaValor.innerText = "R$" + e.valor;
 
       botaoFechar.innerText = "Fechar Pedido";
       botaoCancelar.innerText = "Cancelar Pedido";
 
-      botaoFechar.onclick = function (e) {
-        colunaStatus.innerText = 'Pedido Fechado'
+      botaoFechar.onclick = function () {
+        if(colunaStatus.innerText != "Pedido Cancelado") {
+          colunaStatus.innerText = 'Pedido Fechado'
+          obj.status = "Pedido Fechado"
+        }
       }
 
       botaoCancelar.onclick = function (e) {
-        colunaStatus.innerText = 'Pedido Cancelado'
+        if(colunaStatus.innerText != "Pedido Fechado") {
+          colunaStatus.innerText = 'Pedido Cancelado'
+          obj.status = "Pedido Cancelado"
+        }
       }
 
 

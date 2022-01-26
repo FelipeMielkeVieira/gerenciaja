@@ -82,3 +82,7 @@ table {
     width: 14vw;
     height: 40px;
 }
+
+button:hover {
+    cursor: pointer;
+}
